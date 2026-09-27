@@ -1,0 +1,28 @@
+{
+  "name": "oson-prava",
+  "version": "1.0.0",
+  "description": "OSON PRAVA — Zamonaviy haydovchilik guvohnomasi nazariy imtihoniga tayyorlov platformasi",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js",
+    "dev": "node server.js",
+    "build:css": "npx --yes tailwindcss@3.4.17 -c ./tailwind.config.js -i ./css/tailwind.src.css -o ./css/tailwind.css --minify",
+    "watch:css": "npx --yes tailwindcss@3.4.17 -c ./tailwind.config.js -i ./css/tailwind.src.css -o ./css/tailwind.css --watch"
+  },
+  "keywords": [
+    "osonprava",
+    "driving-license",
+    "yhq",
+    "uzbekistan",
+    "education"
+  ],
+  "author": "OSON PRAVA Team",
+  "license": "MIT",
+  "engines": {
+    "node": ">=18"
+  },
+  "dependencies": {
+    "pdfkit": "^0.20.2",
+    "qrcode": "^1.5.4"
+  }
+}

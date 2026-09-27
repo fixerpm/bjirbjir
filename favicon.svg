@@ -1,0 +1,87 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 120 120" width="100%" height="100%">
+  <defs>
+    <!-- Background Deep Luxury Navy Gradient -->
+    <linearGradient id="opBgGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#0A1530"/>
+      <stop offset="50%" stop-color="#0F2148"/>
+      <stop offset="100%" stop-color="#070E22"/>
+    </linearGradient>
+
+    <!-- Metallic Gold Shield Accent Gradient -->
+    <linearGradient id="opGoldGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#FFFBEB"/>
+      <stop offset="30%" stop-color="#FDE68A"/>
+      <stop offset="70%" stop-color="#F59E0B"/>
+      <stop offset="100%" stop-color="#B45309"/>
+    </linearGradient>
+
+    <!-- Inner Shield Gradient -->
+    <linearGradient id="opInnerShieldGrad" x1="50%" y1="0%" x2="50%" y2="100%">
+      <stop offset="0%" stop-color="#142657"/>
+      <stop offset="60%" stop-color="#0A1530"/>
+      <stop offset="100%" stop-color="#060C1A"/>
+    </linearGradient>
+
+    <!-- Radiant Checkmark Gradient -->
+    <linearGradient id="opCheckGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#FFFFFF"/>
+      <stop offset="40%" stop-color="#FDE68A"/>
+      <stop offset="100%" stop-color="#F59E0B"/>
+    </linearGradient>
+
+    <!-- Glow Filter -->
+    <filter id="opGlow" x="-20%" y="-20%" width="140%" height="140%">
+      <feGaussianBlur stdDeviation="2" result="blur"/>
+      <feComposite in="SourceGraphic" in2="blur" operator="over"/>
+    </filter>
+  </defs>
+
+  <!-- 1. Smooth Squircle Base with Gold Double Border -->
+  <rect x="2" y="2" width="116" height="116" rx="26" fill="url(#opBgGrad)" stroke="#38BDF8" stroke-width="1.5" stroke-opacity="0.3"/>
+  <rect x="4.5" y="4.5" width="111" height="111" rx="23.5" fill="none" stroke="url(#opGoldGrad)" stroke-width="1" stroke-opacity="0.45"/>
+
+  <!-- 2. Automotive Highway Perspective -->
+  <path d="M46 96 L57 64 L63 64 L74 96 Z" fill="#1E3A8A" opacity="0.45"/>
+  <line x1="60" y1="67" x2="60" y2="74" stroke="#F59E0B" stroke-width="2" stroke-linecap="round" opacity="0.8"/>
+  <line x1="60" y1="79" x2="60" y2="88" stroke="#F59E0B" stroke-width="2.5" stroke-linecap="round" opacity="0.85"/>
+
+  <!-- 3. Outer Gold Heraldic Shield -->
+  <path d="M60 14 C80 14, 96 22, 100 44 C100 71, 81 93, 60 106 C39 93, 20 71, 20 44 C24 22, 40 14, 60 14 Z" 
+        fill="url(#opGoldGrad)" 
+        filter="url(#opGlow)"/>
+
+  <!-- 4. Inner Luxury Dark Shield Layer -->
+  <path d="M60 18 C77 18, 91 25, 95 44 C95 68, 79 88, 60 100 C41 88, 25 68, 25 44 C29 25, 43 18, 60 18 Z" 
+        fill="url(#opInnerShieldGrad)" 
+        stroke="#38BDF8" 
+        stroke-width="1" 
+        stroke-opacity="0.35"/>
+
+  <!-- 5. Shield Pinstripe Contour -->
+  <path d="M60 22 C74 22, 87 28, 90 45 C90 65, 76 83, 60 94 C44 83, 30 65, 30 45 C33 28, 46 22, 60 22 Z" 
+        fill="none" 
+        stroke="url(#opGoldGrad)" 
+        stroke-width="0.8" 
+        stroke-opacity="0.55"/>
+
+  <!-- 6. Stylized Steering Arc -->
+  <path d="M38 50 C38 37, 47 28, 60 28 C73 28, 82 37, 82 50" 
+        fill="none" 
+        stroke="#38BDF8" 
+        stroke-width="1.8" 
+        stroke-linecap="round" 
+        stroke-opacity="0.35"/>
+
+  <!-- 7. Bold Official Checkmark -->
+  <path d="M44 58 L55 70 L78 44" 
+        fill="none" 
+        stroke="url(#opCheckGrad)" 
+        stroke-width="8.5" 
+        stroke-linecap="round" 
+        stroke-linejoin="round" 
+        filter="url(#opGlow)"/>
+
+  <!-- 8. Top Apex Excellence Beacon -->
+  <circle cx="60" cy="28" r="2.2" fill="#FFFFFF" filter="url(#opGlow)"/>
+  <circle cx="60" cy="28" r="1.2" fill="#F59E0B"/>
+</svg>

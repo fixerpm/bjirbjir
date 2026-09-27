@@ -1,0 +1,1305 @@
+/* ==========================================================================
+   OSON PRAVA — "YO'L" Design System
+   v3.0 — Complete visual rebuild: route/journey visual identity,
+   editorial typography, deeper navy + amber signature palette.
+   ========================================================================== */
+
+/* Shriftlar loyihaning o‘zida (self-hosted) — tashqi Google Fonts'ga bog‘liq emas */
+@font-face {
+  font-family: 'Sora';
+  font-style: normal;
+  font-weight: 100 800;
+  font-display: swap;
+  src: url('../vendor/fonts/sora-latin-ext-wght-normal.woff2') format('woff2');
+  unicode-range: U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF, U+0304, U+0308, U+0329, U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C0, U+2113, U+2C60-2C7F, U+A720-A7FF;
+}
+@font-face {
+  font-family: 'Sora';
+  font-style: normal;
+  font-weight: 100 800;
+  font-display: swap;
+  src: url('../vendor/fonts/sora-latin-wght-normal.woff2') format('woff2');
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
+@font-face {
+  font-family: 'Inter';
+  font-style: normal;
+  font-weight: 100 900;
+  font-display: swap;
+  src: url('../vendor/fonts/inter-latin-ext-wght-normal.woff2') format('woff2');
+  unicode-range: U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF, U+0304, U+0308, U+0329, U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C0, U+2113, U+2C60-2C7F, U+A720-A7FF;
+}
+@font-face {
+  font-family: 'Inter';
+  font-style: normal;
+  font-weight: 100 900;
+  font-display: swap;
+  src: url('../vendor/fonts/inter-latin-wght-normal.woff2') format('woff2');
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
+
+:root {
+  --font-primary: 'Sora', system-ui, -apple-system, sans-serif;
+  --font-body: 'Inter', system-ui, -apple-system, sans-serif;
+
+  /* Light Theme Palette — warm off-white instead of cool slate,
+     for a calmer, more editorial (less "generic SaaS") feel */
+  --bg-primary: #FAFAF7;
+  --bg-surface: #FFFFFF;
+  --bg-surface-elevated: #FFFFFF;
+  --bg-muted: #F2F1EC;
+  --text-primary: #101828;
+  --text-secondary: #475569;
+  --text-muted: #94A3B8;
+  --border-subtle: #E7E5DE;
+  --border-focus: #C2410C;
+
+  /* Brand Accents — deep confident navy (authority/official) + amber
+     "route" accent (road markings). Still only 5 hues site-wide:
+     slate / blue / emerald / amber / rose. */
+  --brand-blue: #132A46;
+  --brand-blue-hover: #0C1D30;
+  --brand-blue-light: #E8EEF5;
+  --brand-cyan: #0284C7;
+  --brand-emerald: #0F9D6C;
+  --brand-emerald-light: #E9F7F1;
+  --brand-amber: #D97706;
+  --brand-amber-light: #FDF3E6;
+  --brand-rose: #E11D48;
+  --brand-rose-light: #FDEEF1;
+
+  /* Radius scale — slightly less "bubbly", more structured */
+  --radius-sm: 0.5rem;
+  --radius-md: 0.75rem;
+  --radius-lg: 1rem;
+  --radius-xl: 1.25rem;
+
+  /* Shadows */
+  --shadow-sm: 0 1px 2px 0 rgba(16, 24, 40, 0.05);
+  --shadow-md: 0 4px 10px -2px rgba(16, 24, 40, 0.08), 0 2px 4px -2px rgba(16, 24, 40, 0.05);
+  --shadow-lg: 0 12px 20px -4px rgba(16, 24, 40, 0.10), 0 4px 8px -4px rgba(16, 24, 40, 0.05);
+  --shadow-xl: 0 24px 32px -8px rgba(16, 24, 40, 0.12), 0 8px 12px -6px rgba(16, 24, 40, 0.06);
+  --shadow-glow: 0 0 28px rgba(217, 119, 6, 0.18);
+
+  /* Transition Defaults */
+  --ease-out: cubic-bezier(0.16, 1, 0.3, 1);
+  --ease-spring: cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+
+/* Dark Theme Palette — near-black (not slate-blue) for a more
+   premium, high-contrast night mode */
+html.dark {
+  --bg-primary: #0A0A0C;
+  --bg-surface: #131316;
+  --bg-surface-elevated: #1B1B1F;
+  --bg-muted: #1F1F23;
+  --text-primary: #F7F7F5;
+  --text-secondary: #C9C9CE;
+  --text-muted: #7A7A82;
+  --border-subtle: #2A2A2F;
+  --border-focus: #FB923C;
+
+  --brand-blue: #3B82F6;
+  --brand-blue-hover: #60A5FA;
+  --brand-blue-light: rgba(59, 130, 246, 0.15);
+  --brand-cyan: #38BDF8;
+  --brand-emerald: #34D399;
+  --brand-emerald-light: rgba(15, 157, 108, 0.18);
+  --brand-amber: #FB923C;
+  --brand-amber-light: rgba(217, 119, 6, 0.18);
+  --brand-rose: #FB7185;
+  --brand-rose-light: rgba(225, 29, 72, 0.18);
+
+  --shadow-sm: 0 1px 2px 0 rgba(0, 0, 0, 0.4);
+  --shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.4), 0 2px 4px -2px rgba(0, 0, 0, 0.3);
+  --shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.5), 0 4px 6px -4px rgba(0, 0, 0, 0.4);
+  --shadow-xl: 0 20px 25px -5px rgba(0, 0, 0, 0.6), 0 8px 10px -6px rgba(0, 0, 0, 0.5);
+  --shadow-glow: 0 0 28px rgba(251, 146, 60, 0.22);
+}
+
+/* ==========================================================================
+   GLOBAL RESETS & BASE
+   ========================================================================== */
+
+* {
+  box-sizing: border-box;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: var(--font-body);
+  background-color: var(--bg-primary);
+  color: var(--text-primary);
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  overflow-x: hidden;
+  transition: background-color 0.25s ease, color 0.25s ease;
+  line-height: 1.6;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: var(--font-primary);
+  line-height: 1.25;
+}
+
+/* Prevent ANYTHING from causing horizontal scroll */
+html, body {
+  max-width: 100vw;
+}
+
+/* Centralized scroll locking for active modals & drawers */
+html.scroll-locked,
+body.scroll-locked {
+  overflow: hidden !important;
+}
+
+
+/* ==========================================================================
+   CUSTOM SCROLLBAR
+   ========================================================================== */
+
+::-webkit-scrollbar {
+  width: 7px;
+  height: 7px;
+}
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+::-webkit-scrollbar-thumb {
+  background: #CBD5E1;
+  border-radius: 9999px;
+}
+html.dark ::-webkit-scrollbar-thumb {
+  background: #475569;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: #94A3B8;
+}
+
+/* Firefox scrollbar */
+* {
+  scrollbar-width: thin;
+  scrollbar-color: #CBD5E1 transparent;
+}
+html.dark * {
+  scrollbar-color: #475569 transparent;
+}
+
+/* No-scrollbar utility (e.g. horizontal chip strips) */
+.no-scrollbar::-webkit-scrollbar { display: none; }
+.no-scrollbar { -ms-overflow-style: none; scrollbar-width: none; }
+
+/* ==========================================================================
+   GLASSMORPHISM
+   ========================================================================== */
+
+.glass {
+  background: rgba(255, 255, 255, 0.82);
+  backdrop-filter: blur(16px) saturate(1.2);
+  -webkit-backdrop-filter: blur(16px) saturate(1.2);
+  border: 1px solid rgba(226, 232, 240, 0.7);
+}
+html.dark .glass {
+  background: rgba(15, 23, 42, 0.82);
+  backdrop-filter: blur(16px) saturate(1.2);
+  -webkit-backdrop-filter: blur(16px) saturate(1.2);
+  border: 1px solid rgba(51, 65, 85, 0.6);
+}
+
+/* ==========================================================================
+   GLOBAL CONTAINER SYSTEM
+   Pure, independent layout container for all main content, sections, and pages.
+   Does NOT include any header-specific flex or alignment rules.
+   ========================================================================== */
+
+.container,
+.site-container,
+.main-container {
+  width: 100% !important;
+  max-width: 80rem !important; /* 1280px — matches max-w-7xl */
+  margin-left: auto !important;
+  margin-right: auto !important;
+  padding-left: 1rem !important;
+  padding-right: 1rem !important;
+  box-sizing: border-box !important;
+}
+
+@media (min-width: 640px) {
+  .container,
+  .site-container,
+  .main-container {
+    padding-left: 1.5rem !important;
+    padding-right: 1.5rem !important;
+  }
+}
+
+@media (min-width: 1024px) {
+  .container,
+  .site-container,
+  .main-container {
+    padding-left: 2rem !important;
+    padding-right: 2rem !important;
+  }
+}
+
+/* ==========================================================================
+   HEADER — DEDICATED HEADER CONTAINER & HORIZONTAL NAVBAR LAYOUT
+   Isolated completely from the global content container
+   ========================================================================== */
+
+.header-container {
+  width: 100%;
+  /* No max-width cap — let header fill the viewport edge-to-edge so
+     all content fits at every width from 1280px to 1920px+ */
+  margin-left: auto;
+  margin-right: auto;
+  padding-left: 1rem;
+  padding-right: 1rem;
+  height: 4rem; /* 64px */
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.5rem;
+  box-sizing: border-box;
+  overflow: visible; /* keep dropdowns visible */
+}
+
+@media (min-width: 640px) {
+  .header-container {
+    padding-left: 1.5rem;
+    padding-right: 1.5rem;
+    gap: 0.75rem;
+  }
+}
+
+@media (min-width: 1024px) {
+  .header-container {
+    padding-left: 2rem;
+    padding-right: 2rem;
+    gap: 1rem;
+  }
+}
+
+@media (min-width: 1280px) {
+  .header-container {
+    padding-left: 2.5rem;
+    padding-right: 2.5rem;
+    gap: 1.25rem;
+  }
+}
+
+@media (min-width: 1536px) {
+  .header-container {
+    padding-left: 3rem;
+    padding-right: 3rem;
+    gap: 1.5rem;
+  }
+}
+
+header {
+  width: 100%;
+  max-width: 100vw;
+  overflow: visible; /* allow dropdowns */
+}
+
+/* Desktop header navigation: clean horizontal row, never wrap.
+   Full nav only appears at xl (1280px+) via Tailwind xl:flex.
+   Nav is flex-shrink-0 so it never gets squashed below its content size.
+   The nav sits between the logo (left) and the action buttons (right),
+   and gets flex-1 with justify-center so it stays centred. */
+@media (min-width: 1280px) {
+  header nav {
+    display: flex !important;
+    align-items: center !important;
+    flex-direction: row !important;
+    flex-wrap: nowrap !important;
+    white-space: nowrap !important;
+    gap: 0;
+    /* Take available horizontal space and centre the links */
+    flex: 1 1 auto;
+    justify-content: center;
+  }
+}
+
+@media (min-width: 1440px) {
+  header nav {
+    gap: 0.25rem;
+  }
+}
+
+@media (min-width: 1600px) {
+  header nav {
+    gap: 0.5rem;
+  }
+}
+
+/* Never let the header row overflow horizontally */
+.header-container > nav,
+.header-container > a {
+  min-width: 0;
+}
+
+header nav a,
+header nav .nav-link {
+  display: inline-flex !important;
+  align-items: center !important;
+  white-space: nowrap !important;
+  flex-shrink: 0 !important;
+  line-height: 1.25;
+  /* Compact font at exactly 1280px where space is tightest */
+  font-size: 0.75rem;
+  padding-left: 0.5rem;
+  padding-right: 0.5rem;
+}
+
+@media (min-width: 1440px) {
+  header nav a,
+  header nav .nav-link {
+    font-size: 0.8125rem;
+    padding-left: 0.625rem;
+    padding-right: 0.625rem;
+  }
+}
+
+@media (min-width: 1600px) {
+  header nav a,
+  header nav .nav-link {
+    font-size: 0.875rem;
+    padding-left: 0.75rem;
+    padding-right: 0.75rem;
+  }
+}
+
+/* Active navigation link style — amber "route marker" instead of blue,
+   so the active state reads as a distinct signature accent, not just a
+   deeper shade of the same primary color everything else already uses. */
+header nav a.active,
+.nav-link.active {
+  color: var(--brand-amber) !important;
+  background-color: var(--brand-amber-light);
+  border-radius: 0.5rem;
+}
+html.dark header nav a.active,
+html.dark .nav-link.active {
+  color: #FB923C !important;
+  background-color: rgba(217, 119, 6, 0.16);
+}
+
+/* Account button — prevent growing infinitely */
+#account-trigger-btn {
+  max-width: 200px;
+  overflow: hidden;
+}
+
+/* Account and notification dropdowns — stay inside viewport on mobile */
+#account-dropdown,
+#notif-dropdown {
+  max-width: calc(100vw - 2rem);
+}
+
+@media (max-width: 640px) {
+  #account-dropdown,
+  #notif-dropdown {
+    position: fixed !important;
+    top: 4.25rem !important;
+    left: 0.75rem !important;
+    right: 0.75rem !important;
+    width: auto !important;
+    max-width: calc(100vw - 1.5rem) !important;
+    margin: 0 auto !important;
+  }
+}
+
+/* ==========================================================================
+   MOBILE DRAWER MENU — smooth open/close animation + hamburger morph
+   ========================================================================== */
+
+#mobile-menu {
+  display: grid;
+  grid-template-rows: 0fr;
+  opacity: 0;
+  visibility: hidden;
+  transition: grid-template-rows 0.32s var(--ease-out), opacity 0.22s ease, visibility 0.32s;
+}
+#mobile-menu > .mobile-menu-inner {
+  overflow: hidden;
+  min-height: 0;
+}
+#mobile-menu.mobile-menu-open {
+  grid-template-rows: 1fr;
+  opacity: 1;
+  visibility: visible;
+}
+
+/* Hamburger <-> close icon morph */
+#mobile-menu-toggle-btn .bar-icon {
+  transition: opacity 0.2s ease, transform 0.25s var(--ease-out);
+}
+#mobile-menu-toggle-btn .close-icon {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  opacity: 0;
+  transform: rotate(-45deg) scale(0.6);
+}
+#mobile-menu-toggle-btn.is-open .bar-icon {
+  opacity: 0;
+  transform: rotate(45deg) scale(0.6);
+}
+#mobile-menu-toggle-btn.is-open .close-icon {
+  opacity: 1;
+  transform: rotate(0deg) scale(1);
+}
+
+/* ==========================================================================
+   CARD SYSTEM
+   ========================================================================== */
+
+.card-hover {
+  transition: transform 0.25s var(--ease-out), box-shadow 0.25s var(--ease-out);
+}
+.card-hover:hover {
+  transform: translateY(-4px);
+  box-shadow: var(--shadow-lg);
+}
+
+/* Modern Minimalist Card Token — slightly tighter radius, amber-tinted
+   hover border (route/signal accent) instead of generic blue glow */
+.card-minimal {
+  background-color: var(--bg-surface);
+  border: 1px solid var(--border-subtle);
+  border-radius: var(--radius-lg);
+  transition: all 0.25s var(--ease-out);
+}
+.card-minimal:hover {
+  border-color: rgba(217, 119, 6, 0.35);
+  transform: translateY(-2px);
+  box-shadow: var(--shadow-md);
+}
+html.dark .card-minimal:hover {
+  border-color: rgba(251, 146, 60, 0.35);
+}
+
+/* ==========================================================================
+   BUTTON SYSTEM
+   ========================================================================== */
+
+.btn-press {
+  transition: transform 0.1s ease, filter 0.1s ease, box-shadow 0.15s ease;
+}
+.btn-press:active {
+  transform: scale(0.97);
+}
+.btn-press:focus-visible {
+  outline: 2px solid var(--border-focus);
+  outline-offset: 2px;
+}
+
+/* ==========================================================================
+   VIEW SECTION SPA SYSTEM
+   ========================================================================== */
+
+.view-section {
+  display: none;
+  opacity: 0;
+  transform: translateY(6px);
+  transition: opacity 0.25s ease, transform 0.25s ease;
+}
+.view-section.active {
+  display: block;
+  opacity: 1;
+  transform: translateY(0);
+  animation: fadeInView 0.25s ease-out;
+}
+
+/* ==========================================================================
+   FORM INPUT SYSTEM
+   ========================================================================== */
+
+.input-minimal {
+  width: 100%;
+  padding: 0.625rem 1rem;
+  font-size: 0.875rem;
+  border-radius: 0.75rem;
+  border: 1px solid var(--border-subtle);
+  background-color: var(--bg-surface);
+  color: var(--text-primary);
+  transition: all 0.15s ease;
+  outline: none;
+}
+.input-minimal:focus {
+  border-color: var(--border-focus);
+  box-shadow: 0 0 0 3px rgba(217, 119, 6, 0.14);
+}
+
+/* ==========================================================================
+   BADGE SYSTEM
+   ========================================================================== */
+
+.badge-minimal {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.375rem;
+  padding: 0.25rem 0.625rem;
+  border-radius: 9999px;
+  font-size: 0.75rem;
+  font-weight: 500;
+  line-height: 1;
+}
+
+/* Badge shine effect */
+.badge-shine {
+  position: relative;
+  overflow: hidden;
+}
+.badge-shine::after {
+  content: '';
+  position: absolute;
+  top: -50%;
+  left: -50%;
+  width: 200%;
+  height: 200%;
+  background: linear-gradient(
+    60deg,
+    transparent 40%,
+    rgba(255, 255, 255, 0.25) 50%,
+    transparent 60%
+  );
+  transform: rotate(25deg);
+  animation: shine 4s infinite;
+}
+
+/* ==========================================================================
+   KEYFRAME ANIMATIONS
+   ========================================================================== */
+
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+@keyframes slideUp {
+  from { opacity: 0; transform: translateY(16px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes fadeInView {
+  from { opacity: 0; transform: translateY(4px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes pulseSubtle {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.7; }
+}
+
+@keyframes floatSlow {
+  0%, 100% { transform: translateY(0px); }
+  50% { transform: translateY(-8px); }
+}
+
+@keyframes shine {
+  0% { transform: translateX(-100%) rotate(25deg); }
+  20%, 100% { transform: translateX(100%) rotate(25deg); }
+}
+
+.animate-fade-in { animation: fadeIn 0.3s ease forwards; }
+.animate-slide-up { animation: slideUp 0.35s var(--ease-out) forwards; }
+.animate-float { animation: floatSlow 4s ease-in-out infinite; }
+
+/* ==========================================================================
+   MODAL SYSTEM
+   ========================================================================== */
+
+.modal-backdrop {
+  background-color: rgba(15, 23, 42, 0.55);
+  backdrop-filter: blur(6px);
+  -webkit-backdrop-filter: blur(6px);
+}
+
+/* ==========================================================================
+   TOAST NOTIFICATIONS
+   ========================================================================== */
+
+#toast-container {
+  position: fixed;
+  bottom: 1.5rem;
+  right: 1.5rem;
+  z-index: 9999;
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+  pointer-events: none;
+  max-width: 380px;
+  width: calc(100vw - 3rem);
+}
+
+.toast {
+  pointer-events: auto;
+  box-shadow: var(--shadow-xl);
+  border-radius: 0.75rem;
+  padding: 0.875rem 1.25rem;
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  font-size: 0.875rem;
+  font-weight: 500;
+  animation: slideUp 0.3s var(--ease-out) forwards;
+  transition: opacity 0.2s ease, transform 0.2s ease;
+}
+
+/* ==========================================================================
+   TEST ENGINE — ANSWER CHOICES
+   ========================================================================== */
+
+.answer-choice {
+  border: 2px solid var(--border-subtle);
+  background-color: var(--bg-surface);
+  color: var(--text-primary);
+  border-radius: 0.875rem;
+  padding: 1rem 1.25rem;
+  cursor: pointer;
+  transition: all 0.15s ease;
+  position: relative;
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+.answer-choice:hover:not(.disabled) {
+  border-color: var(--brand-cyan);
+  background-color: var(--brand-blue-light);
+}
+.answer-choice.selected {
+  border-color: var(--brand-blue);
+  background-color: var(--brand-blue-light);
+  box-shadow: 0 0 0 1px var(--brand-blue);
+}
+.answer-choice.correct {
+  border-color: var(--brand-emerald) !important;
+  background-color: var(--brand-emerald-light) !important;
+  color: #065F46 !important;
+}
+html.dark .answer-choice.correct {
+  color: #A7F3D0 !important;
+}
+.answer-choice.wrong {
+  border-color: var(--brand-rose) !important;
+  background-color: var(--brand-rose-light) !important;
+  color: #991B1B !important;
+}
+html.dark .answer-choice.wrong {
+  color: #FECACA !important;
+}
+.answer-choice.disabled {
+  cursor: default;
+  pointer-events: none;
+}
+
+/* ==========================================================================
+   QUESTION NAVIGATOR PILLS
+   ========================================================================== */
+
+.q-pill {
+  width: 2.5rem;
+  height: 2.5rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 0.5rem;
+  font-weight: 600;
+  font-size: 0.875rem;
+  cursor: pointer;
+  transition: all 0.15s ease;
+  border: 1px solid var(--border-subtle);
+  background-color: var(--bg-surface);
+  color: var(--text-secondary);
+}
+.q-pill:hover {
+  border-color: var(--brand-cyan);
+  color: var(--brand-cyan);
+}
+.q-pill.active {
+  border-color: var(--brand-blue);
+  background-color: var(--brand-blue);
+  color: #FFFFFF !important;
+  box-shadow: 0 0 0 2px rgba(15, 63, 122, 0.3);
+}
+.q-pill.answered {
+  background-color: var(--bg-muted);
+  border-color: var(--text-muted);
+  color: var(--text-primary);
+}
+.q-pill.correct-pill {
+  background-color: var(--brand-emerald) !important;
+  border-color: var(--brand-emerald) !important;
+  color: #FFFFFF !important;
+}
+.q-pill.wrong-pill {
+  background-color: var(--brand-rose) !important;
+  border-color: var(--brand-rose) !important;
+  color: #FFFFFF !important;
+}
+.q-pill.flagged-pill {
+  border-color: var(--brand-amber) !important;
+  background-color: var(--brand-amber-light) !important;
+  color: #B45309 !important;
+  position: relative;
+}
+.q-pill.flagged-pill::after {
+  content: '';
+  position: absolute;
+  top: 3px;
+  right: 3px;
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background-color: var(--brand-amber);
+}
+
+/* ==========================================================================
+   ROAD SIGN DISPLAY
+   ========================================================================== */
+
+.sign-box {
+  width: 72px;
+  height: 72px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  flex-shrink: 0;
+  transition: transform 0.2s ease;
+}
+.sign-card:hover .sign-box {
+  transform: scale(1.08);
+}
+
+/* ==========================================================================
+   EXAM MODE
+   ========================================================================== */
+
+.exam-banner {
+  background: linear-gradient(135deg, #0F3F7A 0%, #1E3A8A 100%);
+  color: white;
+  border-radius: 1rem;
+  padding: 1.5rem;
+}
+html.dark .exam-banner {
+  background: linear-gradient(135deg, #1E3A8A 0%, #1E1B4B 100%);
+}
+
+/* ==========================================================================
+   SVG CIRCULAR PROGRESS CHARTS
+   ========================================================================== */
+
+.circular-chart {
+  display: block;
+  margin: 0 auto;
+  max-width: 100%;
+  max-height: 250px;
+}
+.circle-bg { fill: none; stroke: var(--bg-muted); stroke-width: 3.8; }
+.circle {
+  fill: none;
+  stroke-width: 3.8;
+  stroke-linecap: round;
+  transition: stroke-dasharray 1s var(--ease-out);
+}
+.circle.blue { stroke: var(--brand-cyan); }
+.circle.green { stroke: var(--brand-emerald); }
+.circle.rose { stroke: var(--brand-rose); }
+.percentage {
+  fill: var(--text-primary);
+  font-family: var(--font-primary);
+  font-weight: 700;
+  font-size: 0.5em;
+  text-anchor: middle;
+}
+
+/* ==========================================================================
+   FAQ ACCORDION
+   ========================================================================== */
+
+.faq-content {
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 0.3s cubic-bezier(0, 1, 0, 1);
+}
+.faq-item.active .faq-content {
+  max-height: 1000px;
+  transition: max-height 0.35s ease-in-out;
+}
+.faq-item.active .faq-icon {
+  transform: rotate(180deg);
+}
+
+/* ==========================================================================
+   FOOTER
+   ========================================================================== */
+
+footer {
+  position: relative;
+}
+
+footer::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 1px;
+  background: linear-gradient(90deg, transparent, var(--brand-cyan), var(--brand-blue), var(--brand-cyan), transparent);
+  opacity: 0.3;
+}
+
+/* ==========================================================================
+   RESPONSIVE ADJUSTMENTS & MOBILE POLISH (320px - 640px)
+   ========================================================================== */
+
+/* Universal Image, Canvas, SVG and Table Safety */
+img, svg, video, canvas {
+  max-width: 100%;
+  height: auto;
+}
+
+/* Ensure all textual elements wrap safely */
+h1, h2, h3, h4, h5, h6, p, span, a, button, label {
+  overflow-wrap: break-word;
+  word-wrap: break-word;
+}
+
+@media (max-width: 640px) {
+  /* Prevent iOS Safari auto-zoom on input focus */
+  input:not([type="checkbox"]):not([type="radio"]),
+  select,
+  textarea,
+  .input-minimal {
+    font-size: 16px !important;
+  }
+
+  /* Modals — full-width, clean safe padding, max-height with smooth touch scroll */
+  .modal-backdrop + div,
+  [id$="-modal"] > div:not(.modal-backdrop) {
+    width: 100% !important;
+    max-width: calc(100vw - 1.5rem) !important;
+    max-height: calc(100dvh - 2rem) !important;
+    padding: 1.25rem 1rem !important;
+    margin: auto !important;
+    border-radius: 1.25rem !important;
+    overflow-y: auto !important;
+    -webkit-overflow-scrolling: touch;
+    box-sizing: border-box !important;
+  }
+
+  /* Sign Cards & Boxes */
+  .sign-box {
+    width: 56px;
+    height: 56px;
+  }
+
+  /* Question Navigator Pills */
+  .q-pill {
+    width: 2rem;
+    height: 2rem;
+    font-size: 0.75rem;
+    flex-shrink: 0;
+  }
+
+  /* Answer Choices in Practice & Exam */
+  .answer-choice {
+    padding: 0.75rem 0.875rem;
+    gap: 0.75rem;
+    width: 100%;
+    min-width: 0;
+  }
+  .answer-choice span.flex-1 {
+    font-size: 0.875rem !important;
+    line-height: 1.4;
+  }
+
+  /* Floating AI Mentor Button safe spacing above mobile dock */
+  .floating-ai-btn-container,
+  .fixed.bottom-20.right-5 {
+    bottom: calc(4.75rem + env(safe-area-inset-bottom, 0px)) !important;
+    right: 0.75rem !important;
+  }
+
+  /* Floating left buttons (sound / theme) */
+  .fixed.bottom-20.left-5 {
+    bottom: calc(4.75rem + env(safe-area-inset-bottom, 0px)) !important;
+    left: 0.75rem !important;
+  }
+
+  /* Toast notification container on mobile */
+  #toast-container {
+    bottom: calc(4.75rem + env(safe-area-inset-bottom, 0px)) !important;
+    right: 0.75rem !important;
+    left: 0.75rem !important;
+    width: auto !important;
+    max-width: calc(100vw - 1.5rem) !important;
+  }
+
+  /* 2D Crossroad SVG Container */
+  #crossroad-sim-container svg,
+  #simulyator-dedicated-container svg {
+    max-width: 100% !important;
+    height: auto !important;
+  }
+}
+
+@media (max-width: 480px) {
+  /* Headings on small mobile screens */
+  h1 {
+    font-size: clamp(1.6rem, 7vw, 2.25rem) !important;
+    line-height: 1.2 !important;
+  }
+
+  /* Hero Section spacing */
+  #view-bosh-sahifa .pt-10 {
+    padding-top: 1.5rem !important;
+  }
+}
+
+@media (max-width: 375px) {
+  /* Micro phones (320px - 375px) */
+  .header-container {
+    padding-left: 0.5rem !important;
+    padding-right: 0.5rem !important;
+    gap: 0.25rem !important;
+  }
+
+  header .flex.items-center.gap-1\.5,
+  header .flex.items-center.gap-2 {
+    gap: 0.25rem !important;
+  }
+
+  header button.w-8,
+  header button.w-9 {
+    width: 1.875rem !important;
+    height: 1.875rem !important;
+    padding: 0 !important;
+  }
+
+  #header-login-btn {
+    padding: 0.375rem 0.625rem !important;
+    font-size: 0.7rem !important;
+  }
+
+  #mobile-menu-toggle-btn {
+    padding-left: 0.5rem !important;
+    padding-right: 0.5rem !important;
+    height: 1.875rem !important;
+  }
+
+  .q-pill {
+    width: 1.85rem;
+    height: 1.85rem;
+    font-size: 0.7rem;
+  }
+
+  /* Compact padding in cards */
+  .card-minimal,
+  .bg-white.dark\:bg-slate-800.rounded-3xl,
+  .bg-white.dark\:bg-slate-900.rounded-3xl {
+    padding: 1rem !important;
+  }
+}
+
+/* ==========================================================================
+   AI TUTOR, MOBILE DOCK & SOUND FX INNOVATIONS
+   ========================================================================== */
+
+/* Floating AI Button Pulse Ring */
+.floating-ai-btn {
+  box-shadow: 0 10px 25px -5px rgba(16, 185, 129, 0.4), 0 8px 10px -6px rgba(16, 185, 129, 0.2);
+  transition: all 0.3s var(--ease-out);
+}
+.floating-ai-btn:hover {
+  transform: translateY(-4px) scale(1.05);
+  box-shadow: 0 20px 30px -10px rgba(16, 185, 129, 0.5);
+}
+.ai-pulse-ring {
+  position: absolute;
+  inset: -4px;
+  border-radius: 9999px;
+  border: 2px solid #10b981;
+  animation: ai-pulse 2.5s infinite cubic-bezier(0.24, 0, 0.38, 1);
+  pointer-events: none;
+}
+@keyframes ai-pulse {
+  0% { transform: scale(0.95); opacity: 0.8; }
+  50% { transform: scale(1.25); opacity: 0; }
+  100% { transform: scale(1.25); opacity: 0; }
+}
+
+/* ==========================================================================
+   MOBILE BOTTOM NAVIGATION DOCK
+   ========================================================================== */
+
+.mobile-bottom-dock {
+  backdrop-filter: blur(20px) saturate(1.3);
+  -webkit-backdrop-filter: blur(20px) saturate(1.3);
+  background: rgba(255, 255, 255, 0.92);
+  box-shadow: 0 -2px 20px -2px rgba(0, 0, 0, 0.06);
+}
+.dark .mobile-bottom-dock {
+  background: rgba(15, 23, 42, 0.92);
+  box-shadow: 0 -2px 20px -2px rgba(0, 0, 0, 0.4);
+}
+.dock-item {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 0.5rem 0.25rem;
+  transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+  border-radius: 0.75rem;
+}
+.dock-item:hover {
+  background-color: rgba(37, 99, 235, 0.05);
+}
+.dock-item.active {
+  color: #2563eb !important;
+  font-weight: 700 !important;
+}
+.dark .dock-item.active {
+  color: #60a5fa !important;
+}
+.dock-item.active i {
+  transform: translateY(-2px);
+  filter: drop-shadow(0 3px 8px rgba(37, 99, 235, 0.35));
+}
+.dock-item.active::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  width: 1.5rem;
+  height: 3px;
+  border-radius: 9999px;
+  background-color: #2563eb;
+}
+.dark .dock-item.active::after {
+  background-color: #60a5fa;
+}
+
+/* ==========================================================================
+   QUESTION-RELATED ROAD SIGN THUMBNAIL (Tests & Exam)
+   ========================================================================== */
+
+.q-sign-visual {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  padding: 0.75rem 1rem;
+  margin-bottom: 1.25rem;
+  border-radius: 1rem;
+  background: var(--brand-blue-light);
+  border: 1px solid rgba(2, 132, 199, 0.18);
+  animation: fadeIn 0.3s ease;
+}
+html.dark .q-sign-visual {
+  background: rgba(56, 189, 248, 0.08);
+  border-color: rgba(56, 189, 248, 0.2);
+}
+.q-sign-visual .q-sign-thumb {
+  width: 3rem;
+  height: 3rem;
+  flex-shrink: 0;
+  filter: drop-shadow(0 2px 4px rgba(0,0,0,0.12));
+}
+.q-sign-visual .q-sign-meta {
+  min-width: 0;
+}
+.q-sign-visual .q-sign-code {
+  font-size: 0.65rem;
+  font-weight: 800;
+  letter-spacing: 0.03em;
+  color: var(--brand-cyan);
+  text-transform: uppercase;
+}
+.q-sign-visual .q-sign-name {
+  font-size: 0.8rem;
+  font-weight: 700;
+  color: var(--text-primary);
+  line-height: 1.3;
+}
+
+/* ==========================================================================
+   LOADING — minimal
+   Asosiy sahifa preloader'i (#site-preloader) stillari index.html <head> ichida
+   (critical CSS) turadi, shunda u boshqa hech narsani kutmasdan darhol chiqadi.
+   Bu yerda faqat amallar orasidagi yengil overlay (#global-action-loader) bor.
+   ========================================================================== */
+
+#global-action-loader {
+  position: fixed;
+  inset: 0;
+  z-index: 9990;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: rgba(250, 250, 247, 0.8);
+  -webkit-backdrop-filter: blur(6px);
+  backdrop-filter: blur(6px);
+  opacity: 0;
+  visibility: hidden;
+  pointer-events: none;
+  transition: opacity 0.22s ease, visibility 0.22s;
+  user-select: none;
+}
+
+html.dark #global-action-loader {
+  background: rgba(10, 10, 12, 0.8);
+}
+
+#global-action-loader.is-open {
+  opacity: 1;
+  visibility: visible;
+  pointer-events: auto;
+}
+
+.oson-al-card {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 4px;
+  min-width: 210px;
+  max-width: 300px;
+  padding: 24px 28px 22px;
+  text-align: center;
+  background: var(--bg-surface);
+  border: 1px solid var(--border-subtle);
+  border-radius: var(--radius-lg);
+  box-shadow: var(--shadow-lg);
+  transform: translateY(6px);
+  transition: transform 0.28s var(--ease-out);
+}
+
+#global-action-loader.is-open .oson-al-card {
+  transform: translateY(0);
+}
+
+.oson-al-ring {
+  width: 22px;
+  height: 22px;
+  margin-bottom: 12px;
+  border-radius: 50%;
+  border: 2px solid var(--border-subtle);
+  border-top-color: var(--brand-amber);
+  animation: osonAlSpin 0.8s linear infinite;
+}
+
+@keyframes osonAlSpin {
+  to { transform: rotate(360deg); }
+}
+
+.oson-al-title {
+  margin: 0;
+  font-family: var(--font-primary);
+  font-size: 0.875rem;
+  font-weight: 600;
+  letter-spacing: -0.005em;
+  color: var(--text-primary);
+}
+
+.oson-al-sub {
+  margin: 0;
+  font-size: 0.75rem;
+  line-height: 1.45;
+  color: var(--text-muted);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .oson-al-ring { animation-duration: 2.4s; }
+  #global-action-loader,
+  .oson-al-card { transition: none; }
+}
+
+/* ==========================================================================
+   SELECTION HIGHLIGHT
+   ========================================================================== */
+
+::selection {
+  background-color: rgba(2, 132, 199, 0.2);
+  color: inherit;
+}
+
+/* ==========================================================================
+   FOCUS VISIBLE GLOBAL
+   ========================================================================== */
+
+:focus-visible {
+  outline: 2px solid var(--border-focus);
+  outline-offset: 2px;
+}
+
+/* ==========================================================================
+   OFFICIAL CERTIFICATE SEAL STAMP & PRINT CSS
+   ========================================================================== */
+
+.official-seal-stamp {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  transform: rotate(-8deg);
+  opacity: 0.88;
+  color: #1E40AF;
+  filter: drop-shadow(0 2px 4px rgba(30, 64, 175, 0.18));
+  user-select: none;
+  transition: transform 0.3s ease, opacity 0.3s ease;
+}
+
+.official-seal-stamp:hover {
+  transform: rotate(-4deg) scale(1.04);
+  opacity: 0.98;
+}
+
+@media print {
+  body * {
+    visibility: hidden !important;
+  }
+  #printable-certificate,
+  #printable-certificate * {
+    visibility: visible !important;
+  }
+  #certificate-modal {
+    position: absolute !important;
+    left: 0 !important;
+    top: 0 !important;
+    width: 100% !important;
+    height: auto !important;
+    background: transparent !important;
+    display: block !important;
+    padding: 0 !important;
+    margin: 0 !important;
+  }
+  #printable-certificate {
+    position: absolute !important;
+    left: 50% !important;
+    top: 20px !important;
+    transform: translateX(-50%) !important;
+    width: 100% !important;
+    max-width: 800px !important;
+    border: 6px double #D97706 !important;
+    box-shadow: none !important;
+    margin: 0 auto !important;
+    page-break-inside: avoid !important;
+    -webkit-print-color-adjust: exact !important;
+    print-color-adjust: exact !important;
+  }
+  .official-seal-stamp {
+    opacity: 1 !important;
+    -webkit-print-color-adjust: exact !important;
+    print-color-adjust: exact !important;
+  }
+}
+
